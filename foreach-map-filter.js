@@ -93,25 +93,18 @@ Examples:
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 
 
-    STILL NEED TO COMPLETE!!
 */
 function vowelCount(str){
-    let vowelCounter = [];
+    let vowelCounter = {};
+    str = str.toLowerCase();
    /* is vowel declared on top of page */
-    for(char of str){
-        const object = {};
+    for(let char of str){
         if(isVowel(char)){
-
-            object[char] = 1;
-            for(obj of vowelCounter){
-                if(object[char] === obj[char]){
-                    object[char] += 1;
-                }else{
-                    vowelCounter.push(object);
-                }
-            }
-            
-                 
+            if(vowelCounter[char]){
+                vowelCounter[char] +=1;
+            }else{
+                vowelCounter[char] = 1; 
+            }          
         }   
     }
     return vowelCounter;
@@ -178,7 +171,7 @@ Write a function called extractFullName which accepts an array of objects and re
 Examples:
     extractFullName([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia"}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele"}]) // ['Elie Schoppik', 'Tim Garcia', 'Matt Lane', 'Colt Steele']
 */
-/* MUST FINISH STILL!! */
+
 function extractFullName(arr){
     let fullNames = [];
 
@@ -239,7 +232,17 @@ Examples:
 */
 /* must finish still!! */
 function findInObj(arr, key, searchValue) {
+    let foundObj = undefined;
+  
 
+    for(obj of arr){
+        if(obj[key] === searchValue){
+            foundObj = obj;
+            return foundObj;   
+        }
+    }
+
+    return foundObj;
     
 }
 
